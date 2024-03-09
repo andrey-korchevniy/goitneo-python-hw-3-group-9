@@ -1,4 +1,5 @@
-from handlers import add_contact, change_contact, contact_phone, all_contacts
+from classes import AddressBook
+from handlers import add_contact, change_contact, contact_phone, all_contacts, add_birthday, show_birthday, birthdays
 
 def parse_input(user_input):
     cmd, *args = user_input.split()
@@ -7,7 +8,7 @@ def parse_input(user_input):
 
 
 def main():
-    contacts = {}
+    contacts = AddressBook()
     print("Welcome to the assistant bot!")
     while True:
         user_input = input("Enter a command: ")
@@ -25,8 +26,12 @@ def main():
             
             if 'overwrite' in response:
                 option = input(response)
-                command = parse_input(option)[0]
- 
+                try:
+                    command = parse_input(option)[0]
+                except ValueError:
+                    print('Saving the contact was cancelled')
+                    continue
+                 
                 if command == 'yes':
                     print(add_contact(args, contacts, True))
                 else:
@@ -42,6 +47,18 @@ def main():
             
         elif command == 'all':
             print(all_contacts(contacts))
+            
+        elif command == 'add-birthday': 
+            response = add_birthday(args, contacts)
+            print(response)
+            
+        elif command == 'show-birthday':
+            response = show_birthday(args, contacts)
+            print(response)
+
+        elif command == 'birthdays':
+            birthdays(contacts)
+            
             
         else:
             print("Invalid command.")
