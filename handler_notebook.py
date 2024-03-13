@@ -53,9 +53,9 @@ def delete_note(note_id):
         note_id = int(note_id)
         notebook.delete_note(note_id)
     except ValueError:
-        print (f"{red}Invalid note ID: {note_id}. Note ID must be an integer.{reset}")
+        print (f"{red}(>_<) Invalid note ID: {note_id}. Note ID must be an integer.{reset}")
     except IndexError:
-        print (f"{red}No note found with ID {note_id}.{reset}")
+        print (f"{red}(>_<) No note found with ID {note_id}.{reset}")
         
 
 @input_error
@@ -66,9 +66,9 @@ def find_note_by_id(note_id):
         print_note(note)
 
     except ValueError:
-        print (f"{red}Invalid note ID: {note_id}. Note ID must be an integer.{reset}")
+        print (f"{red}(>_<) Invalid note ID: {note_id}. Note ID must be an integer.{reset}")
     except IndexError:
-        print (f"{red}No note found with ID {note_id}.{reset}")      
+        print (f"{red}(>_<) No note found with ID {note_id}.{reset}")      
     
 def print_note(note):
     tags_str = ", ".join(note.tags)

@@ -117,7 +117,7 @@ def main():
             try:
                 note_id = int(args[0]) if len(args) > 0 else int(input(f"{blue}Enter note ID: {reset}"))
             except:
-                print(f"{red}Invalid input.{reset}")
+                print(f"{red}(>_<) Invalid input.{reset}")
                 continue   
             
             new_text = input(f"{blue}Enter new text for the note: {reset}")
