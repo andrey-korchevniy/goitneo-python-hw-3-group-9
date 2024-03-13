@@ -1,5 +1,5 @@
 from error_handler import input_error
-from classes import AddressBook, Record, Phone
+from classes import Record
 import re
 
 PHONE_MASK = r"^\d{10}$"
